@@ -22,15 +22,18 @@ public class UserService {
 
         return userRepository.save(user);
     }
-
+    
+    // user id 찾기
     public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
 
+    // user 이름 찾기
     public Optional<User> findByName(String name) {
         return userRepository.findByName(name);
     }
 
+    // 전체 유저 조회
     public List<User> findAll() {
         return userRepository.findAll();
     }
