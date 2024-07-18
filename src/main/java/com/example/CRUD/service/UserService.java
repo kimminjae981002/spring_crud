@@ -2,13 +2,17 @@ package com.example.CRUD.service;
 
 import com.example.CRUD.domain.User;
 import com.example.CRUD.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserService {
     private final UserRepository userRepository;
 
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -28,7 +32,7 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    // user 이름 찾기
+    // user name 찾기
     public Optional<User> findByName(String name) {
         return userRepository.findByName(name);
     }
