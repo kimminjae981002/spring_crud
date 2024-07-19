@@ -46,6 +46,14 @@ public class MemoryUserRepository implements UserRepository {
         return user;
     }
 
+    // 회원 수정
+    @Override
+    public Optional<User> updateUser(Long id, String name) {
+        Optional<User> user = findById(id);
+        user.ifPresent(value -> value.setName(name));
+        return user;
+    }
+
 
     // Test 시 메모리 clear
     public void clearStore() {

@@ -46,4 +46,9 @@ public class UserService {
     public Optional<User> deleteUser(String name) {
             return userRepository.deleteUser(name);
     }
+
+    // 회원 수정
+    public Optional<User> updateUser(Long id, String name) {
+        return userRepository.updateUser(id, name);
+    }
 }

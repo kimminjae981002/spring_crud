@@ -11,4 +11,5 @@ public interface UserRepository {
     Optional<User> findByName(String name);
     List<User> findAll();
     Optional<User> deleteUser(String name);
+    Optional<User> updateUser(Long id ,String name);
 }

@@ -50,9 +50,23 @@ public class UserController {
         return "users/showUsers";
     }
 
+    // 유저 조회
+    @GetMapping("/user")
+    public String showUser(@RequestParam("id") Long id, Model model) {
+            Optional<User> user = userService.findById(id);
+            model.addAttribute("user", user.get());
+            return "users/showUser";
+    }
+
     @DeleteMapping("/user")
     public String deleteUser(@RequestBody User user) {
         userService.deleteUser(user.getName());
+        return "redirect:/";
+    }
+
+    @PutMapping("/user")
+    public String updateUser(@RequestParam("id") Long id, @RequestBody User user){
+        userService.updateUser(id, user.getName());
         return "redirect:/";
     }
 }
