@@ -38,6 +38,14 @@ public class MemoryUserRepository implements UserRepository {
         return new ArrayList<>(store.values());
     }
 
+    // 회원 삭제
+    @Override
+    public Optional<User> deleteUser(String name) {
+        Optional<User> user = findByName(name);
+        user.ifPresent(value -> store.remove(value.getId()));
+        return user;
+    }
+
 
     // Test 시 메모리 clear
     public void clearStore() {

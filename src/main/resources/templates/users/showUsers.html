@@ -12,12 +12,21 @@
             <tr>
                 <th>#</th>
                 <th>이름</th>
+                <th>삭제</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="user : ${users}">
                 <td th:text="${user.id}"></td>
                 <td th:text="${user.name}"></td>
+                <td>
+                    <form th:action="@{/user/delete}" method="post">
+                        <input type="hidden" name="name" th:value="${user.name}">
+                        <button type="submit">삭제</button>
+                    </form>
+
+                </td>
+
             </tr>
             </tbody>
         </table>
@@ -25,4 +34,3 @@
 </div>
 </body>
 </html>
-</tr>

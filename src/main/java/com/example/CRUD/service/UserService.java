@@ -42,4 +42,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    // 회원 삭제
+    public Optional<User> deleteUser(String name) {
+            return userRepository.deleteUser(name);
+    }
 }

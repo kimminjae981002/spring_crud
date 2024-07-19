@@ -42,6 +42,11 @@ class MemoryUserRepositoryTest {
     }
 
     @Test
+    public void delete() {
+        repository.deleteUser("민재");
+    }
+
+    @Test
     void clearStore() {
     }
 }
